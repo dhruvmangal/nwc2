@@ -155,21 +155,20 @@
 				
 			</header>
 			<section style="padding-top:100px; margin:0px 20px;">
-				<form method="post" action="">
+				<form method="post" action="../user_details/">
 						{% csrf_token %}
 						<div style="height:30px; width:100%;">	
 							<div id="mobile-label">
-								<p  style="font-size:12px; font-family:poppins; color:black; margin-bottom:20px; display:block;">Enter Your Mobile Number</p>
+								<label style="font-size:12px; font-family:poppins; color:black; margin-bottom:20px; display:block;" for="mobile">Enter Your Mobile Number</label>
 							</div>		
 						</div>
 						
-							<center><input type="text" required class="mobile" style="border:none; border-bottom:1px solid #4A4D4E;outline: none; width:100%" name="phone" placeholder="Email/Mobile No." autofocus="autofocus" onfocus="inputfocus(this, 'Email/Mobile No', 'mobile-label')" onblur="inputblur(this, 'Email/Mobile No', 'mobile-label')"></center>
+							<center><input type="text" required class="mobile" style="border:none; border-bottom:1px solid #4A4D4E;outline: none; width:100%" name="mobile" placeholder="Email/Mobile No." autofocus="autofocus" onfocus="inputfocus(this, 'Email/Mobile No', 'mobile-label')" onblur="inputblur(this, 'Email/Mobile No', 'mobile-label')"></center>
 							
 							
 							<center><input type="submit" class="btn" style="color:white; width:100%; border:none; font-size:18px; margin-top:25px; background-color:red; border-radius:0px; box-shadow: 1px 1px 3px gray;" name="submit" value="CONTINUE"></center>
 						</form>
-							<center><a href="../login/"><button class="btn" style="color:red; width:100%; border:1px solid #e6e6e6; font-size:14px; margin-top:25px; background-color:white; border-radius:0px; box-shadow: 1px 1px 3px gray;" onclick="register()">Already Registered? <span style="font-size:16px;"><u><b>Login</b></u></span></button></a></center>
-						
+							<center><a href="../login/"><button class="btn" style="color:red; width:100%; border:1px solid #e6e6e6; font-size:14px; margin-top:25px; background-color:white; border-radius:0px; box-shadow: 1px 1px 3px gray;" onclick="register()">Already Registered? <span style="font-size:16px;"><u><b>Login</b></u></span></button></a></center>						
 			</section>
 		</body>
 	</html>	

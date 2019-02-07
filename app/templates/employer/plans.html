@@ -1,17 +1,15 @@
+{% load static %}
 <html>
 	<head>
 		<title>NWC Jobs:Home</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/cs.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/bootstrap.js" type="text/JavaScript"></script>
-		<script src="js/bootstrap.min.js" type="text/JavaScript"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+		<link rel="stylesheet" href="{% static 'css/cs.css'%}">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+		<script src="{% static 'js/bootstrap.js'%}" type="text/JavaScript"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}" type="text/JavaScript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="css/main.css">
 		<meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
 		<meta property="og:type"          content="website" />
 		<meta property="og:title"         content="Your Website Title" />
@@ -27,94 +25,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="js/main.js" type="text/JavaScript"></script>
-		<script src="js/anime.js" type="text/JavaScript"></script>
-		<script src="js/anime.min.js" type="text/JavaScript"></script>
 		
-		<script>
-			$(document).ready(function(){
-					$("#filter").load("filter-candidate.html");
-					$("#candidate").load("candidate-listing.html");
-					$("#candidate-description").load("ad.html");
-					var x = window.matchMedia("(max-width: 700px)")
-					if (x.matches) {
-						$("#").click(function(){
-							$("#candidate-description").load("candidate-des.html");
-						});
-					}
-					$("#close").click(function()
-					{
-						$("#popup").remove();
-					}
-				);
-				});
-
-			
-				function load_candidate()
-				{
-					$("#candidate-description").load("candidate-des.html");
-				}
-				function login(){
-					$("#popup-div").load("log2.html");
-					document.getElementById("popup").style.display="block";
-				}
-				function close_div()
-				{
-					$("#popup-div").empty();
-					document.getElementById("popup").style.display="none";
-				}
-				function close_des()
-				{
-					$("#candidate-description").empty();
-					$("#candidate-description").load("ad.html");
-				}
-				function register(){
-					$("#popup-div").load("reg2 	.html");
-					document.getElementById("popup").style.display="block";
-
-				}
-				function category()
-				{
-					$("#popup-div").load("cat.html");
-					document.getElementById("popup").style.display="block";
-					document.getElementById("education").style.display="none";
-					document.getElementById("location_div").style.display= "block";
-				}
-				function location_12()
-				{
-					$("#popup-div").load("location.html");
-					document.getElementById("popup").style.display="block";
-				}
-				function education()
-				{
-					$("#popup-div").load("education.html");
-					document.getElementById("popup").style.display="block";
-					document.getElementById("job_role").style.display="none";
-					document.getElementById("location_div").style.display= "block";
-				}
-				function select_location(x)
-				{
-					document.getElementById("location_12").value= x;
-				}
-				function skills()
-				{
-					$("#popup-div").load("skills.html");
-					document.getElementById("popup").style.display="block";
-					
-				}
-				function qjp()
-				{
-					$("#popup-div").load("quickjob.html");
-					document.getElementById("popup").style.display="block";
-				}
-				function get_otp()
-				{
-					$("#popup-div").load("get_otp.html");
-					document.getElementById("popup").style.display="block";
-					
-				}
 		
-		</script>
 		<body>
 			<div id="popup" style="position:fixed; display:none; top:0px; left:0px; width:100%;height:100%; background-color:rgba(74, 77, 78, 0.6);; z-index:2; " >
 				<div id="pop-up" style="border:1px solid gray;border-radius:10px; height:auto;min-height:500px; width:50%; margin-top:100px; margin-left:25%;background-color:white; opacity:1; padding-bottom:30px;">
@@ -135,14 +47,14 @@
 							
 							<div class="fleft" >
 								<h6 style="margin-top:-3px; color:white;">Looking for a job</h6>
-								<h5 style="border:none; border-radius:5px; background-color:red; padding:5px; color:white;text-align:center;">Click Here</h5>
+								<a href="../jobs/"><h5 style="border:none; border-radius:5px; background-color:red; padding:5px; color:white;text-align:center;">Click Here</h5></a>
 								
 							</div>
 							<div class="fright">
 								<h5 style="color:white; padding-right:60px;"><i class="fas fa-envelope" style="font-size:20px;"></i> info@nwcjobs.com</h5>
 							</div>
 							<div class="fright">
-								<h5 style="color:white; padding-right:60px;"><span style="color:green; margin-top:10px;"><img src="img/whatsapp.png" style="height:30px; width:auto;"/></span> +91 -702 333 6651</h5>
+								<h5 style="color:white; padding-right:60px;"><span style="color:green; margin-top:10px;"><img src="{% static 'img/whatsapp.png'%}" style="height:30px; width:auto;"/></span> +91 -702 333 6651</h5>
 							</div>
 								
 						</div>
@@ -157,7 +69,7 @@
 			<section style="margin-bottom:30px;">
 				<div class="container-fluid">
 					<div class="row">
-						<center><img src="img/call_now.png"style="width:200px;" /></center>
+						<center><img src="{% static 'img/call_now.png'%}"style="width:200px;" alt="call" /></center>
 						<center><p>now, post a job on a call</p></center>
 					</div>
 				</div>
@@ -198,95 +110,47 @@
 							</div>
 							<center><p style="margin-top:25px; color:black; font-family:verdana;">*Registration Not Required</p></center>
 						</div>
+					
+			
 						<div style="width:50%; height:110%; float:left; box-shadow:1px 1px 2px; ">
 							<div style="width:100% float:left;">
 								<center><h4 style="color:red;">Register and Choose </h4></center>
 							</div>
-							<div style="width:30%; height:90%;float:left; border:1px solid fbfbfb; margin:0px 10px; box-shadow:1px 1px 2px;background-color:white; padding:-20px 0px;	" onclick="highlight(this)">
-							<center><h4>Silver</h4></center>
+
+							{% if obj%}
+							{%for i in obj%}
+							<div style="width:30%; height:90%;float:left; border:1px solid fbfbfb; margin:0px 10px; box-shadow:1px 1px 2px;background-color:white; padding:-20px 0px;	" onclick="highlight(this,'{{i.plan_name}}')" id="{{i.plan_name}}">
+							<center><h4>{{i.plan_name}}</h4></center>
 							
 							<div style="width:100%; height:50px; background-color:#46C19F; ">
-								<center><p style="font-size:22px; padding-top:20px; color:white;"><b>Rs 3,000</b></p></center>
+								<center><p style="font-size:22px; padding-top:20px; color:white;"><b>Rs {{i.plan_price}}</b></p></center>
 							</div>
 							
 							<div >
 								<center><h5 style="color:gray;"><b>No. of Job Posted:</b></h5></center>
 								
-								<center><h4 style="padding:10px 0px;">105 Jobs</h4></center>
+								<center><h4 style="padding:10px 0px;">{{i.plan_total_jobs}} Jobs</h4></center>
 							</div>
 							<div >
 								<center><h5 style="color:gray;"><b>Database Access:</b></h5></center>
 								
-								<center><h4 style="padding:10px 0px;">105 Resume</h4></center>
+								<center><h4 style="padding:10px 0px;">{{i.plan_db_access}} Resume</h4></center>
 							</div>
 							<div >
 								<center><h5 style="color:gray;"><b>Validity:</b></h5></center>
 								
-								<center><h4 style="padding:10px 0px;">28 Days</h4></center>
+								<center><h4 style="padding:10px 0px;">{{i.plan_validity_starts}} to {{i.plan_validity_ends}}</h4></center>
 							</div>
 							<br/>
 							<div >
 								<center><button class="btn" style="width:80%; font-size:18px; background-color:red; color:white;" onclick="qjp()">BUY NOW</button></center>
 							</div>
 							</div>
+							{% endfor %}
+							{% endif%}
 							
 							
-							<div style="width:30%;	 height:90%; float:left; border:1px solid fbfbfb; margin:0px 10px; box-shadow:1px 1px 2px;background-color:white; padding:-20px 0px;	" onclick="highlight(this)">
-							<center><h4>Faayada</h4></center>
-							<div style="width:100%; height:50px; background-color:#46C19F; ">
-								<center><p style="font-size:22px; padding-top:20px; color:white;"><b>Rs 3,000</b></p></center>
-							</div>
 							
-							<div >
-								<center><h5 style="color:gray;"><b>No. of Job Posted:</b></h5></center>
-								
-								<center><h4 style="padding:10px 0px;">105 Jobs</h4></center>
-							</div>
-							<div >
-								<center><h5 style="color:gray;"><b>Database Access:</b></h5></center>
-								
-								<center><h4 style="padding:10px 0px;">105 Resume</h4></center>
-							</div>
-							<div >
-								<center><h5 style="color:gray;"><b>Validity:</b></h5></center>
-								
-								<center><h4 style="padding:10px 0px;">28 Days</h4></center>
-							</div>
-							<br/>
-							<div >
-								<center><button class="btn" style="width:80%; font-size:18px; background-color:red; color:white;">BUY NOW</button></center>
-							</div>
-							</div>
-						
-						
-						
-							<div style="width:30%; height:90%; float:left; border:1px solid fbfbfb; margin:0px 10px; box-shadow:1px 1px 2px;background-color:white; padding:-20px 0px;	" onclick="highlight(this)">
-							<center><h4>Platinum</h4></center>
-							
-							<div style="width:100%; height:50px; background-color:#46C19F; ">
-								<center><p style="font-size:22px; padding-top:20px; color:white;"><b>Rs 3,000</b></p></center>
-							</div>
-							
-							<div >
-								<center><h5 style="color:gray;"><b>No. of Job Posted:</b></h5></center>
-								
-								<center><h4 style="padding:10px 0px;">105 Jobs</h4></center>
-							</div>
-							<div >
-								<center><h5 style="color:gray;"><b>Database Access:</b></h5></center>
-								
-								<center><h4 style="padding:10px 0px;">105 Resume</h4></center>
-							</div>
-							<div >
-								<center><h5 style="color:gray;"><b>Validity:</b></h5></center>
-								
-								<center><h4 style="padding:10px 0px;">28 Days</h4></center>
-							</div>
-							<br/>
-							<div >
-								<center><button class="btn" style="width:80%; font-size:18px; background-color:red; color:white;" onclick="login()">BUY NOW</button></center>
-							</div>
-							</div>
 							
 						</div >
 						
@@ -323,8 +187,9 @@
 			</section>
 			
 			<script>
-				function highlight(x)
+				function highlight(x,y)
 				{
+					window.location.href= '../company_signup2/?plan='+y;
 					x.style.border= '1px solid red';
 				}
 			</script>

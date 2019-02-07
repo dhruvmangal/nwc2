@@ -1,17 +1,15 @@
+{% load static %}
 <html>
 	<head>
-		<title>NWC Jobs:Login</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/cs.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/bootstrap.js" type="text/JavaScript"></script>
-		<script src="js/bootstrap.min.js" type="text/JavaScript"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+		<title>NWC Jobs:Home</title>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+		<link rel="stylesheet" href="{% static 'css/cs.css'%}">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+		<script src="{% static 'js/bootstrap.js'%}" type="text/JavaScript"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}" type="text/JavaScript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="css/main.css">
 		<meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
 		<meta property="og:type"          content="website" />
 		<meta property="og:title"         content="Your Website Title" />
@@ -27,9 +25,6 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="js/main.js" type="text/JavaScript"></script>
-		<script src="js/anime.js" type="text/JavaScript"></script>
-		<script src="js/anime.min.js" type="text/JavaScript"></script>
 		<style>
 			#job-method{
 				padding-top:50px;
@@ -119,7 +114,7 @@
 			
 			)
 			function go_back(){
-					window.location.href = "candidates.html";
+					window.location.href = "../candidates/";
 			}
 			function inputfocus(x, y, z)
 			{
@@ -155,14 +150,15 @@
 				
 			</header>
 			<section style="padding-top:200px; margin:0px 20px;">
-				<form>
+				<form method="post" action="../company_login/">
+					{% csrf_token%}
 						<div style="height:30px; width:100%;">	
 							<div id="mobile-label">
 								<p  style="font-size:12px; font-family:poppins; color:black; margin-bottom:20px; display:block;">Mobile No</p>
 							</div>		
 						</div>
 						
-							<center><input type="text" required class="mobile" style="border:none; border-bottom:1px solid #4A4D4E;outline: none; width:100%" name="mobile" placeholder="Email/Mobile No." autofocus="autofocus" onfocus="inputfocus(this, 'Mobile No', 'mobile-label')" onblur="inputblur(this, 'Mobile No', 'mobile-label')"></center>
+							<center><input type="text" required class="mobile" style="border:none; border-bottom:1px solid #4A4D4E;outline: none; width:100%" placeholder="Email/Mobile No." autofocus="autofocus" onfocus="inputfocus(this, 'Mobile No', 'mobile-label')" onblur="inputblur(this, 'Mobile No', 'mobile-label')" name="mobile_no"></center>
 							
 						<div id="password-label" style="float:left;display:none;">
 							<p  style="font-size:12px; font-family:poppins; color:black; margin-bottom:0px; margin-top:10px; ">Password</p>
@@ -171,11 +167,11 @@
 							<p  style="font-size:12px; font-family:poppins; color:#3b5998; margin-bottom:0px; margin-top:10px; display:block;" onclick="forgot()">Forgot?</p>
 						</div>
 						
-							<center><input type="Password" required class="mobile" style=" text-indent:18px;border:none; border-bottom:1px solid #4A4D4E;outline: none; width:100%; margin-top:15px;" name="mobile" placeholder="Password." onfocus="inputfocus(this, 'Password', 'password-label')" onblur="inputblur(this, 'Password', 'password-label')"></center>
+							<center><input type="Password" required class="mobile" style=" text-indent:18px;border:none; border-bottom:1px solid #4A4D4E;outline: none; width:100%; margin-top:15px;" placeholder="Password." onfocus="inputfocus(this, 'Password', 'password-label')" onblur="inputblur(this, 'Password', 'password-label')" name="password"></center>
 							
 							<center><input type="submit" class="btn" style="color:white; width:100%; border:none; font-size:18px; margin-top:25px; background-color:red; border-radius:0px; box-shadow: 1px 1px 3px gray;" name="login" value="LOG IN"></center>
-						</form>
-							<center><a href="signup.html"><button class="btn" style="color:red; width:100%; border:1px solid #e6e6e6; font-size:14px; margin-top:25px; background-color:white; border-radius:0px; box-shadow: 1px 1px 3px gray;" onclick="register()">New to NWCJOBS ? <span style="font-size:16px;"><u><b>Register</b></u></span></button></a></center>
+				</form>
+							<center><a href="../company_signup/"><button class="btn" style="color:red; width:100%; border:1px solid #e6e6e6; font-size:14px; margin-top:25px; background-color:white; border-radius:0px; box-shadow: 1px 1px 3px gray;" onclick="register()">New to NWCJOBS ? <span style="font-size:16px;"><u><b>Register</b></u></span></button></a></center>
 						
 			</section>
 		</body>

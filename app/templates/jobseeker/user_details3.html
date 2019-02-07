@@ -1,17 +1,15 @@
+{% load static %}
 <html>
 	<head>
 		<title>NWC Jobs:Home</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/cs.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/bootstrap.js" type="text/JavaScript"></script>
-		<script src="js/bootstrap.min.js" type="text/JavaScript"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+		<link rel="stylesheet" href="{% static 'css/cs.css'%}">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+		<script src="{% static 'js/bootstrap.js'%}" type="text/JavaScript"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}" type="text/JavaScript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="css/main.css">
 		<meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
 		<meta property="og:type"          content="website" />
 		<meta property="og:title"         content="Your Website Title" />
@@ -27,9 +25,6 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="js/main.js" type="text/JavaScript"></script>
-		<script src="js/anime.js" type="text/JavaScript"></script>
-		<script src="js/anime.min.js" type="text/JavaScript"></script>
 		<style>
 			#job-method{
 				padding-top:50px;
@@ -294,55 +289,61 @@
 				</div>
 			</header>
 			<section style="padding-top:150px;">
-				<div class="container-fluid">
+				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
 							<center><h4>Work Experience</h4></center>
 						</div>
 					</div>
-					<form>	
+					<form method="GET" action="../user_details4/">
+							{% csrf_token %}
+							
+							
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="job role">Job Role</label>
+								<label for="job_role">Job Role</label>
 							</div>
-							<select class="form-control">
-								<option>Mechanic</option>
-								<option>Electrician</option>
-								<option>CNC Operator/ Mechanic</option>
-								<option>BPO/ Receptionist</option>
+							<select class="form-control" name="job_role">
+								{% if category %}
+								{% for cat in category %}
+								<option value="{{cat.job_category}}">{{cat.job_category}}</option>
+								{% endfor%}
+								{% endif %}
+							</select>
+						</div>
+
+						{{request.session.gender}}
+						<div class="col-md-12">
+							<div class="form-group">
+								<br/>
+								<label for="experience">Experience</label>
+							</div>
+							<select class="form-control" name="experience">
+								<option value="fresher"> Fresher</option>
+								<option value="0-2 Years">0-2 Years</option>
+								<option value="2-5 Years">2-5 Years</option>
+								<option value="5-10 Years"> 5-10 Years</option>
+								<option value="10-15 Years">10-15 Years</option>
+								<option value="15 Years & above">15 Years & above</option>
 							</select>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
 								<br/>
-								<label for="job role">Experience</label>
-							</div>
-							<select class="form-control">
-								<option> Fresher</option>
-								<option>0-2 Years</option>
-								<option>2-5 Years</option>
-								<option> 5-10 Years</option>
-								<option>10-15 Years</option>
-								<option>15 Years & above</option>
-							</select>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<br/>
-								<label for="job role">Current Address</label>
+								<label for="current_address">Current Address</label>
 							</div>
 							<div style="width:45%; margin:2%; float:left;">
-								<select class="form-control">
-									<option>Rajasthan</option>
+								<select class="form-control" name="current_state">
+									<option value="rajasthan">Rajasthan</option>
 								</select>
 							</div>	
 							<div style="width:45%; margin:2%; float:left;">
-								<select class="form-control">
-									<option>Jaipur</option>
+								<select class="form-control" name="current_city">
+									<option value="jaipur">Jaipur</option>
 								</select>
 							</div>	
-							<textarea class="form-control"></textarea>
+							<textarea class="form-control" name="current_address"></textarea>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
@@ -354,16 +355,16 @@
 								
 							</div>
 							<div style="width:45%; margin:2%; float:left;">
-								<select class="form-control">
-									<option>Rajasthan</option>
+								<select class="form-control"name="permanent_state">
+									<option value="rajasthan">Rajasthan</option>
 								</select>
 							</div>	
 							<div style="width:45%; margin:2%; float:left;">
-								<select class="form-control">
-									<option>Jaipur</option>
+								<select class="form-control" name="permanent_city">
+									<option value="jaipur">Jaipur</option>
 								</select>
 							</div>	
-							<textarea class="form-control"></textarea>
+							<textarea class="form-control"name="permanent_address"></textarea>
 						</div>
 						<hr/>
 						<center><h4>Work History</h4></center>
@@ -371,14 +372,14 @@
 							<br/>
 							<label for="experience">Job Title</label>
 							<div>
-								<input type="text" name="title" placeholder="Senior Electrician" class=" form-control"/>
+								<input type="text" name="job_title" placeholder="Senior Electrician" class=" form-control"/>
 							</div>
 						</div>
 						<div class="col-md-12 form-group" >
 							<br/>
 							<label for="experience">Company Name</label>
 							<div>
-								<input type="text" name="company" placeholder="Company Ka Naam" class=" form-control"/>
+								<input type="text" name="company_name" placeholder="Company Ka Naam" class=" form-control"/>
 							</div>
 						</div>
 						<div class="col-md-12 form-group" >
@@ -406,7 +407,7 @@
 							<br/>
 							<label for="experience">Work Description</label>
 							<div>
-								<textarea class="form-control" placeholder="Kaam Ka Byora"></textarea>
+								<textarea class="form-control" name="description" placeholder="Kaam Ka Byora"></textarea>
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -417,4 +418,5 @@
 						</div>
 					</div>
 				</div>
+			</form>
 			</section>

@@ -1,17 +1,15 @@
+{% load static %}
 <html>
 	<head>
 		<title>NWC Jobs:Home</title>
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/cs.css">
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/bootstrap.js" type="text/JavaScript"></script>
-		<script src="js/bootstrap.min.js" type="text/JavaScript"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+		<link rel="stylesheet" href="{% static 'css/cs.css'%}">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+		<script src="{% static 'js/bootstrap.js'%}" type="text/JavaScript"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}" type="text/JavaScript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="css/main.css">
 		<meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
 		<meta property="og:type"          content="website" />
 		<meta property="og:title"         content="Your Website Title" />
@@ -27,9 +25,6 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="js/main.js" type="text/JavaScript"></script>
-		<script src="js/anime.js" type="text/JavaScript"></script>
-		<script src="js/anime.min.js" type="text/JavaScript"></script>
 		<style>
 			#job-method{
 				padding-top:50px;
@@ -112,129 +107,6 @@
 
 		</style>
 		<script>
-			$(document).ready(function(){
-					$("#filter").load("filter.html");
-					$("#jobs").load("job-listing.html");
-					$("#job-description").load("ad.html");
-					
-					var x = window.matchMedia("(max-width: 700px)")
-					if (x.matches) {
-						$("#").click(function(){
-							$("#job-description").load("job-des.html");
-						});
-					}
-					$("#close").click(function()
-					{
-						$("#popup").remove();
-					}
-				);
-				});
-
-				function show_job_func(){
-					document.getElementById('job-function-mob').style.display= "block";
-					document.getElementById('job-functon-btn1').style.display= "none";
-					document.getElementById('job-functon-btn2').style.display= "block";
-				}
-				function hide_job_func(){
-					document.getElementById('job-function-mob').style.display= "none";
-					document.getElementById('job-functon-btn1').style.display= "block";
-					document.getElementById('job-functon-btn2').style.display= "none";
-				}
-				function load_des()
-				{
-					var x=  window.matchMedia("(max-width: 700px)")
-					if(x.matches)
-					{
-						window.location.href = "jobView.html";
-						}
-					else{
-					$("#job-description").load("job-des.html");
-					}
-				}
-				function filter()
-				{
-					window.location.href = "filters.html";
-				}
-				function login(){
-					var x=  window.matchMedia("(max-width: 700px)")
-					if(x.matches)
-					{
-						window.location.href = "log-mob.html";
-						}
-					else{
-						$("#popup-div").load("log.html");
-						document.getElementById("popup").style.display="block";
-					}
-					
-				}
-				function close_div()
-				{
-					$("#popup-div").empty();
-					document.getElementById("popup").style.display="none";
-				}
-				function close_des()
-				{
-					$("#job-description").empty();
-					$("#job-description").load("ad.html");
-				}
-				function register(){
-					var x=  window.matchMedia("(max-width: 700px)")
-					if(x.matches)
-					{
-						window.location.href = "signup.html";
-						}
-					else{
-						$("#popup-div").load("reg.html");
-					document.getElementById("popup").style.display="block";
-					}
-					
-
-				}
-				function category()
-				{
-					var x=  window.matchMedia("(max-width: 700px)")
-					if(x.matches)
-					{
-						window.location.href = "cat-mob.html";
-						}
-					else{
-						$("#popup-div").load("cat.html");
-					document.getElementById("popup").style.display="block";
-					document.getElementById("education").style.display="none";
-					document.getElementById("location_div").style.display= "block";
-					}
-					
-				}
-				function location_12()
-				{
-					$("#popup-div").load("location.html");
-					document.getElementById("popup").style.display="block";
-				}
-				function education()
-				{
-					
-					var x=  window.matchMedia("(max-width: 700px)")
-					if(x.matches)
-					{
-						window.location.href = "education.html";
-						}
-					else{
-						$("#popup-div").load("cat.html");
-					document.getElementById("popup").style.display="block";
-					document.getElementById("education").style.display="none";
-					document.getElementById("location_div").style.display= "block";
-					}
-				}
-				function select_location(x)
-				{
-					document.getElementById("location_12").value= x;
-				}
-				function skills()
-				{
-					$("#popup-div").load("skills.html");
-					document.getElementById("popup").style.display="block";
-					
-				}
 				function fill_background(x,y)
 				{
 					var t= document.getElementById(y).style.color;
@@ -293,6 +165,7 @@
 					</div>
 				</div>
 			</header>
+			
 			<section style="padding-top:120px;">
 				<div class="container-fluid">
 					<div class="row">
@@ -302,7 +175,9 @@
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4 col-xs-12" style="padding:15PX 20px;">
-						<form>
+						<form method="POST" action="../user_details3/">
+							{% csrf_token %}
+								
 							<input type="hidden" name="language"/>
 							<div style="width:100%; padding-bottom:15PX; height:auto; margin:15PX;">
 								<div style="float:left; width:35%; text-align:center; ">
